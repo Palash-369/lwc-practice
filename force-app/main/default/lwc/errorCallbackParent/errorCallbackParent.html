@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Error Callback Parent with Error Logging">
+        <div class="slds-p-around_medium">
+            <c-error-callback-child></c-error-callback-child>
+
+            <template if:true={errorMessage}>
+                <p style="color:red; font-weight:bold">{errorMessage}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

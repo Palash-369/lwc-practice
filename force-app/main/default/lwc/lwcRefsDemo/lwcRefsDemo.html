@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="LWC:Ref Demo">
+            <lightning-button slot="actions"
+                            label="Call Child LWC Method"
+                            onclick={handleClickLwc}>
+            </lightning-button>
+
+            <div class="slds-p-around_medium">
+                <p lwc:ref="myText"><b>Salesforce Noob</b></p>
+
+                <lightning-button label="Click me"
+                                variant="brand"
+                                onclick={handleClick}>
+                </lightning-button>
+            </div>
+
+            <!--Child LwC-->
+            <c-lwc-child lwc:ref="myChildLwc"></c-lwc-child>
+    </lightning-card>
+</template>

@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Salesforce ComboBox">
+
+            <!-- Lightning ComboBox -->
+            <lightning-combobox label="Accounts"
+                                value={myValue}
+                                placeholder="Select Account"
+                                options={myOption}
+                                onchange={handleChange}>
+            </lightning-combobox>
+
+            <!-- Display Selected Id -->
+            <template if:true={myValue}>
+                <p><b>Selected AccountId:</b> {myValue}</p>
+            </template>
+        </lightning-card>
+
+        <!--Lightning DataTable-->
+
+        <template if:true={isCardVisible}>
+            <lightning-card title="DataTable Card">
+                <div style="height:200px;">
+                    <lightning-datatable key-field="Id"
+                                        data={myData}
+                                        columns={myColumns}>
+                </lightning-datatable>
+                </div>
+            </lightning-card>
+        </template>
+
+</template>

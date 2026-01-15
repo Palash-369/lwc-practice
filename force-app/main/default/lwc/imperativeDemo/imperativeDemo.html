@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Account Wire And Imperative Demo">
+        <!--Wire Result-->
+        <h3>Auto Loaded(Technology Accounts):</h3>
+
+        <template if:true={accountWire}>
+            <template for:each={accountWire} for:item="acc">
+                <p key={acc.Id}>{acc.Name}-{acc.Industry}</p>
+            </template>
+        </template>
+
+        <!--Imperative Button-->
+        <lightning-button label="Fetch Finance Account"
+                            onclick={handleFinance}>
+        </lightning-button>
+
+        <!--Imperative Result-->
+        <h3>On Button Click(Finance Account):</h3>
+
+        <template if:true={accountImperative}>
+            <template for:each={accountImperative} for:item="acc">
+                <p key={acc.Id}>{acc.Name}-{acc.Industry}</p>
+            </template>
+        </template>
+
+        <!--Error-->
+        <template if:true={error}>
+            <p style="color:red">Error:{error.body.message}</p>
+        </template>
+    </lightning-card>
+</template>

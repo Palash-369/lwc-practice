@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Contact Registration">
+
+        <div class="slds-p-around_medium">
+            <p><b>First Name:</b>{contact.firstName}</p>
+            <p><b>Last Name:</b>{contact.lastName}</p>
+            <p><b>Email:</b>{contact.email}</p>
+            <p><b>Country:</b>{contact.country}</p>
+</div>
+
+<lightning-combobox name="country"
+                    label="Select Country"
+                    value={contact.country}
+                    options={countryOptions}
+                    onchange={handleChange}
+                    >
+</lightning-combobox>
+
+<p><b>Selected Contry:</b>{contact.country}</p>
+</lightning-card>
+</template>

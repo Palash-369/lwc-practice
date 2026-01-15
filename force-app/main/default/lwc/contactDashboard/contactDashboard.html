@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Contact Dashboard">
+        <div class="slds-var-p-around_medium">
+            <template if:true={contacts}>
+                <template for:each={contacts} for:item="con">
+                    <p key={con.Id}>
+                        {con.FirstName} {con.LastName}-{con.Email}({con.Account.Name})
+                    </p>
+                </template>
+            </template>
+
+            <template if:true={error}>
+                <p style="color:red;">Error:{error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

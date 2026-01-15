@@ -1,0 +1,53 @@
+<template>
+    <lightning-card title="Create New Account">
+        <div class="slds-p-around_medium">
+            <lightning-record-edit-form 
+                object-api-name="Account"
+                onsuccess={handleSuccess}
+                onsubmit={handleSubmit}>
+                
+                <!-- Name Field (Always Required by Salesforce) -->
+                <lightning-input-field 
+                    field-name="Name" 
+                    required>
+                </lightning-input-field>
+                
+                <!-- Industry Field (Triggers Phone field visibility) -->
+                <lightning-input-field 
+                    field-name="Industry" 
+                    onchange={handleIndustryChange}>
+                </lightning-input-field>
+                
+                <!-- Phone Field (Shows only when Industry = 'Technology') -->
+                <template if:true={showPhone}>
+                    <lightning-input-field 
+                        field-name="Phone">
+                    </lightning-input-field>
+                </template>
+                
+                <!-- Website Field (Always Required) -->
+                <lightning-input-field 
+                    field-name="Website" 
+                    required>
+                </lightning-input-field>
+                
+                <!-- Action Buttons -->
+                <div class="slds-m-top_medium">
+                    <lightning-button 
+                        type="submit"
+                        label="Save Account"
+                        variant="brand"
+                        class="slds-m-right_small">
+                    </lightning-button>
+                    
+                    <lightning-button 
+                        label="Cancel"
+                        variant="neutral"
+                        onclick={handleCancel}>
+                    </lightning-button>
+                </div>
+                
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

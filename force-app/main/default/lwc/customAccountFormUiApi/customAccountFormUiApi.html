@@ -1,0 +1,74 @@
+<template>
+    <lightning-card title="Custom Account Edit Form">
+        <div class="slds-p-around_medium">
+
+            <!--Loading Spinner-->
+            <template if:true={isLoading}>
+                <lightning-spinner alternative-text="Loading"
+                                    size="small">
+                </lightning-spinner>
+            </template>
+
+            <!--Error Message-->
+            <template if:true={error}>
+                <div class="slds-notify slds-notify_alert slds-alert_error slds-m-bottom_medium">
+                    <span class="slds-assistive-text">error</span>
+                    <h2>Error Loading Account Data</h2>
+                    <p>{error}</p>
+                </div>
+            </template>
+
+            <!--Manual Form Field-->
+            <template if:false={isLoading}>
+                <lightning-input label="Account Name"
+                                value={accountName}
+                                onchange={handleNameChange}
+                                required>
+                </lightning-input>
+
+            <!--Industry field(Picklist)-->
+            <lightning-combobox label="Industry"
+                                value={accountIndustry}
+                                placeholder="Select Industry"
+                                options={industryOptions}
+                                onchange={handleIndustryChange}>
+            </lightning-combobox>
+
+            <!--Phone field - conditional rendering-->
+            <template if:true={showPhone}>
+                <lightning-input label="Phone"
+                                type="tel"
+                                palceholder="123-456-7890"
+                                value={accountPhone}
+                                onchange={handlePhoneChange}
+                                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+                </lightning-input>
+            </template>
+
+            <!--Website field-->
+            <lightning-input label="Website"
+                            type="url"
+                            value={accountWebsite}
+                            onchange={handleWebsiteChange}
+                            placeholder="http://example.com">
+            </lightning-input>
+
+            <!--Action Button-->
+            <div class="slds-m-top_medium">
+                <lightning-button label="Save"
+                                variant="brand"
+                                onclick={handleSave}
+                                disabled={isLoading}
+                                class="slds-m-right_small">
+                </lightning-button>
+
+                <lightning-button label="Cancel"
+                                variant="neutral"
+                                onclick={handleCancel}
+                                disabled={isLoading}>
+                </lightning-button>
+            </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

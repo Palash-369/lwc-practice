@@ -1,0 +1,73 @@
+<template>
+    <lightning-card title="Get Account Details">
+        <div class="slds-var-p-around_medium">
+
+            <!-- Input Field -->
+            <lightning-input 
+                label="Enter Account Id"
+                value={recordId}
+                onchange={handleChange}
+                placeholder="001XXXXXXXXXXXXXXX"
+                required>
+            </lightning-input>
+
+            <!-- Fetch Button -->
+            <lightning-button 
+                label="Get Account"
+                variant="brand"
+                onclick={fetchAccount}
+                disabled={isButtonDisabled}
+                class="slds-m-top_small">
+            </lightning-button>
+
+            <!-- Loading Spinner -->
+            <template if:true={isLoading}>
+                <lightning-spinner 
+                    alternative-text="Loading" 
+                    size="small"
+                    class="slds-m-top_small">
+                </lightning-spinner>
+            </template>
+
+            <!-- Success - Account Data -->
+            <template if:true={accountData}>
+                <div class="slds-box slds-theme_success slds-m-top_medium">
+                    <dl class="slds-dl_horizontal">
+                        <dt class="slds-dl_horizontal__label">
+                            <p class="slds-truncate">Account Name:</p>
+                        </dt>
+                        <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                            <p class="slds-truncate">{accountData.name}</p>
+                        </dd>
+
+                        <dt class="slds-dl_horizontal__label">
+                            <p class="slds-truncate">Industry:</p>
+                        </dt>
+                        <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                            <p class="slds-truncate">{accountData.industry}</p>
+                        </dd>
+
+                        <dt class="slds-dl_horizontal__label">
+                            <p class="slds-truncate">Phone:</p>
+                        </dt>
+                        <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                            <p class="slds-truncate">{accountData.phone}</p>
+                        </dd>
+                    </dl>
+                </div>
+            </template>
+
+            <!-- Error Message -->
+            <template if:true={error}>
+                <div class="slds-notify slds-notify_alert slds-alert_error slds-m-top_medium" role="alert">
+                    <span class="slds-assistive-text">error</span>
+                    <h2>
+                        <lightning-icon icon-name="utility:error" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                        {error}
+                    </h2>
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

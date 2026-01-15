@@ -1,0 +1,38 @@
+<template>
+    <lightning-card title="Account Wire & Imperative">
+        <div class="slds-var-p-around_medium">
+
+        <!--Wire Result-->
+        <h3><b>Auto loaded(Technology Accounts):</b></h3>
+        <template if:true={accountWire}>
+            <template for:each={accountWire} for:item="acc">
+
+                <p key={acc.Id}>{acc.Name}-{acc.Industry}</p>
+
+            </template>
+        </template>
+    </br>
+</br>
+        <!--Imperative Button-->
+        <lightning-button label="Fetch Finance Account"
+                        onclick={handleFinance}
+                        variant="brand">
+        </lightning-button>
+    </br>
+</br>
+        <!--Imperative Result-->
+        <h3><b>On button Click(Finance Accounts):</b></h3>
+        <template if:true={accountImperative}>
+            <template for:each={accountImperative} for:item="acc">
+
+                <p key={acc.Id}>{acc.Name}-{acc.Industry}</p>
+
+            </template>
+        </template>
+
+        <template if:true={error}>
+            <p style="color:red;">Error:{error.body.message}</p>
+        </template>
+    </div>
+    </lightning-card>
+</template>

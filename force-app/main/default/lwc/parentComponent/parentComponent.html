@@ -1,0 +1,10 @@
+<template>
+<lightning-card title="Parent Card">
+    <p class="slds-text-align_center">
+        COUNT:{countValue}
+    </p>
+    <c-child-component onsubstract={handleDecrement} onadd={handleIncrement}>
+    </c-child-component>
+</lightning-card>
+
+</template>

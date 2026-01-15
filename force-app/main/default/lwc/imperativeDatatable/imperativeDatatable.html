@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Imperative Demo">
+        <div style="height:200px;">
+            <lightning-button label="Fetch Account"
+                            onclick={handleClick}>
+            </lightning-button>
+
+            <template if:true={fetchAccountImperative}>
+                <lightning-datatable key-field="id"
+                                data={myData}
+                                columns={myColumns}>
+            </lightning-datatable>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Full Name">
+        <lightning-input class="slds-p-around_medium"
+                        label="First Name"
+                        name="firstname"
+                        onchange={handleChange}>
+        </lightning-input>
+
+        <lightning-input class="slds-p-around_medium"
+                        label="Last Name"
+                        name="lastname"
+                        onchange={handleChange}>
+        </lightning-input>
+    </lightning-card>
+
+    <lightning-card title="Updated Changed Value">
+        <h1 class="slds-p-around_medium">
+            Updated First Name:<b>{fullName.firstName}</b>
+        </br>
+    </br>
+            Updated Last Name:<b>{fullName.lastName}</b>
+        </h1>
+
+    </lightning-card>
+</template>

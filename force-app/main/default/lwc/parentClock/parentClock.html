@@ -1,0 +1,20 @@
+<template>
+    <div class="slds-p-var-around_medium">
+        <lightning-card title="Parent Clock">
+
+            <lightning-button label="Show Clock"
+                            onclick={showClock}>
+            </lightning-button>
+
+            <lightning-button label="Hide Clock"
+                            onclick={hideClock}>
+            </lightning-button>
+
+            <!--Clock get Removed-->
+            <template if:true={isClockVisible}>
+                <c-child-clock>
+                </c-child-clock>
+            </template>
+        </lightning-card>
+    </div>
+</template>

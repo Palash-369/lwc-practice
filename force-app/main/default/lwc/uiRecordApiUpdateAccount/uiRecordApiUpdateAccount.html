@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="UI Record Api Update Account">
+        <div class="slds-var-p-around_medium">
+            <lightning-input label="AccountId"
+                            value={recordId}
+                            onchange={handleIdChange}>
+            </lightning-input>
+
+            <lightning-input label="New Account Name"
+                            value={newName}
+                            onchange={handleNameChange}>
+            </lightning-input>
+
+            <lightning-button variant="brand"
+                            label="Update Account"
+                            onclick={updateAccount}>
+            </lightning-button>
+
+            <template if:true={successMessage}>
+                <p class="slds-p-around_medium"></p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

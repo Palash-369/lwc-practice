@@ -7,6 +7,7 @@ export default class LwcRefsDemo extends LightningElement {
         childLwc.sayHi();
     }
 
+    //handle Click to see Text
     handleClick(){
         let para = this.refs.myText;
         para.className = 'red_text';

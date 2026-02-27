@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Parent Component">
+        <!--calling Child-->
+    <c-child-second-practice 
+        onvaluechange={handleValue}>
+    </c-child-second-practice>
+    <p>
+        <b>Value from Child:</b> 
+        {parentValue}
+    </p>
+    </lightning-card>
+</template>

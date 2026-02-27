@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Parent Component">
+        <lightning-input label="Put the Values"
+                        value={myValue}
+                        onchange={handleChange}>
+        </lightning-input>
+
+        <!--Call Child Component-->
+        <c-child-practice message={myValue}>
+        </c-child-practice>
+    </lightning-card>
+</template>

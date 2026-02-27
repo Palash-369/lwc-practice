@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Grand Parent Event Bubble">
+
+        <!--Call Parent Event Bubble-->
+        <c-parent-event-bubble onsendtograndparent={handleTextFromChild}>
+        </c-parent-event-bubble>
+
+        <p><b>
+            Value receive from Child Event
+        </b> {receivedTextFromChild}</p>
+    </lightning-card>
+</template>

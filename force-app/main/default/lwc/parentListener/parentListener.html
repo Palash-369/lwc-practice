@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Parent Listner">
+        <!--Call Child A Component-->
+        <c-child-a-component onvaluefromchild={handleChildValue}>
+        </c-child-a-component>
+
+        <!--Call Child B Component-->
+        <c-child-b-component message-result={showChildAResult}>
+        </c-child-b-component>
+    </lightning-card>
+</template>
